@@ -1,0 +1,1417 @@
+/*
+Theme Name: NW Fund 2022
+Author: Steady Pixel
+Author URI: https://steadypixel.com/
+Template: twentytwenty
+Description: Customized version of the Twenty Twenty theme for Northwest Fund for the Environment. Built with longevity in mind.
+Version: 0
+Text Domain: nwfund
+*/
+
+/*Color Aliases*/
+:root {
+	--color-primary: #407061;
+	--color-primary-light: #B0C4BD;
+	--color-primary-bright: #82B4A4;
+	--color-secondary: #3F4F70;
+	--color-secondary-light: #AFB6C4;
+	--color-secondary-bright: #8292B4;
+	--color-foreground: #000000;
+	--color-background: #FFFFFF;
+}
+
+/*No header bolding please*/
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong,
+.faux-heading strong,
+.heading-size-1 strong,
+.heading-size-2 strong,
+.heading-size-3 strong,
+.heading-size-4 strong,
+.heading-size-5 strong,
+.heading-size-6 strong { font-weight: normal; }
+
+/*Blocks*/
+/*Blocks - Button*/
+/*TwentyTwenty or core CSS forgot to give outline button a border*/
+.is-style-outline>.wp-block-button__link, 
+.wp-block-button__link.is-style-outline { 
+	border: 2px solid var(--color-primary); border-color: currentColor;}
+
+
+/*--------------------------------------------------------------
+>>> TWENTY TWENTY OVERRIDES:
+----------------------------------------------------------------
+
+	1. 	Document Setup
+	2. 	Element Base
+	3. 	Helper Classes
+
+	5. 	Menu Modal
+	6. 	Search Modal
+
+	8.  Post: Archive
+	
+	10. Blocks
+	11. Entry Content
+	
+	13. Site Pagination
+	
+
+	16. Site Footer
+	17. Media Queries
+    18. Inline Style Tag 🙄
+
+----------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+
+/*	1. Document Setup
+/* -------------------------------------------------------------------------- */
+
+body {
+	background: var(--color-background);
+	box-sizing: border-box;
+	color: var(--color-foreground);
+	font-family: var(--font-sans);
+	font-size: 1.8rem;
+	letter-spacing: normal;
+	text-align: left;
+}
+
+@supports ( font-variation-settings: normal ) {
+
+	body {
+		font-family: var(--font-sans);
+	}
+}
+
+/* Fonts ------------------------------------- */
+
+/*Set up fonts*/
+:root {
+    --font-serif: "Roboto Slab", "Roboto Serif", "Roboto", -apple-system, BlinkMacSystemFont, "system-ui", Garamond, serif; /*TODO: why is there an italic flash wtf*/
+    --font-sans: "Roboto", "Roboto Slab", "Roboto Serif",-apple-system, BlinkMacSystemFont, "system-ui", Arial, sans-serif;
+}
+
+@font-face {
+	font-family: "Roboto Slab";
+	src: url(./assets/fonts/RobotoSlab-VariableFont_wght.ttf) format("truetype");
+    font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url(./RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf) format("truetype");
+    font-weight: 100 900;
+	font-display: swap;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	2. Element Base
+/* ---------------------------------------------*---------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.faux-heading {
+    font-family: var(--font-serif);
+	font-feature-settings: normal;
+	font-variant-numeric: lining-nums;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 1.25;
+	margin: 3.5rem 0 2rem;
+    text-transform: capitalize;  /*changed*/
+}
+
+h1,
+.heading-size-1 {
+	font-family: var(--font-serif);
+    font-size: 4.8rem;
+	font-weight: bold;
+	line-height: 1.14;
+    text-transform: capitalize; /*changed*/
+    letter-spacing: 0.05rem; /*Only because white on dark is harder to read*/
+}
+
+h2,
+.heading-size-2 {
+	font-family: var(--font-serif);
+    font-size: 3.2rem;
+    font-weight: normal;
+    text-transform: capitalize; /*changed*/
+}
+
+h3,
+.heading-size-3 {
+	font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: normal;
+    text-transform: capitalize; /*changed*/
+}
+
+HTML .entry-content h2 + h3, 
+HTML .entry-content .heading-size-2 + h3, 
+HTML .entry-content h2 + .heading-size-3, 
+HTML .entry-content .heading-size-2 + .heading-size-3 {
+	margin-top: 0rem; 
+}
+
+
+h4,
+.heading-size-4 {
+	font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: capitalize; /*changed*/
+}
+
+h5,
+.heading-size-5 {
+	font-family: var(--font-serif);
+    font-size: 2.3rem;
+    text-transform: capitalize; /*changed*/
+}
+
+h6,
+.heading-size-6 {
+	font-family: var(--font-serif);
+    font-size: 2.1rem;
+	letter-spacing: normal;
+	text-transform: capitalize; /*changed*/
+}
+
+p {
+	font-family: var(--font-sans);
+	font-size: 2.1rem;
+    line-height: 1.25;
+	margin: 0 0 1em 0;
+}
+
+b,
+strong {
+	font-weight: bold; /*sans changed*/
+}
+
+hr {
+	border-style: solid;
+	border-width: 0.1rem 0 0 0;
+	border-color: var(--color-primary-light); /*Was dcd7ca*/
+	margin: 4rem 0;
+}
+
+a {
+	color: var(--color-primary); /*Was cd2653*/
+	text-decoration: underline;
+}
+
+/* Quotes ------------------------------------ */
+
+blockquote {
+	border-color: var(--color-primary); /*was cd2653*/
+	border-style: solid;
+}
+
+cite {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.25;
+}
+
+/* Code -------------------------------------- */
+
+pre {
+	border: 0.1rem solid var(--color-primary-light); /*was dcd7ca*/
+}
+
+/* Media ------------------------------------- */
+
+figcaption,
+.wp-caption-text {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal;
+}
+
+/* Inputs ------------------------------------ */
+
+fieldset {
+	border: 0.2rem solid var(--color-primary-light); /*was dcd7ca*/
+}
+
+input[type="checkbox"] {
+	border-color: var(--color-primary-light); /*was dcd7ca*/
+}
+
+input,
+textarea,
+button,
+.button,
+.faux-button,
+.wp-block-button__link,
+.wp-block-file__button {
+	font-family: var(--font-sans);
+	line-height: 1;
+}
+
+@supports ( font-variation-settings: normal ) {
+
+	input,
+	textarea,
+	button,
+	.button,
+	.faux-button,
+	.faux-button.more-link,
+	.wp-block-button__link,
+	.wp-block-file__button {
+		font-family: var(--font-sans);
+	}
+}
+
+input,
+textarea {
+	border-color: var(--color-primary-light); /*was dcd7ca*/
+}
+
+button,
+.button,
+.faux-button,
+.wp-block-button__link,
+.wp-block-file .wp-block-file__button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background: var(--color-primary); /*was cd2653*/
+	font-weight: normal;
+	letter-spacing: normal;
+	text-transform: capitalize; /*changed*/
+}
+
+
+/* Tables ------------------------------------ */
+
+table {
+	border: 0.1rem solid var(--color-primary-light); /*was dcd7ca*/
+}
+
+th,
+td {
+	border: 0.1rem solid var(--color-primary-light); /*was dcd7ca*/
+}
+
+caption {
+	background: var(--color-primary-light); /*was dcd7ca*/
+	font-weight: normal;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	3. Helper Classes
+/* -------------------------------------------------------------------------- */
+
+/* Colors ------------------------------------ */
+
+/* COLOR */
+
+.color-accent,
+.color-accent-hover:focus,
+.color-accent-hover:hover {
+	color: var(--color-primary); /*was cd2653*/
+}
+
+/* BACKGROUND COLOR */
+
+.bg-accent,
+.bg-accent-hover:focus,
+.bg-accent-hover:hover {
+	background-color: var(--color-primary); /*was cd2653*/
+}
+
+/* BORDER COLOR */
+
+.border-color-accent,
+.border-color-accent-hover:focus,
+.border-color-accent-hover:hover {
+	border-color: var(--color-primary); /*was cd2653*/
+}
+
+/* FILL COLOR */
+
+.fill-children-accent,
+.fill-children-accent * {
+	fill: var(--color-primary); /*was cd2653*/
+}
+
+/* Social Icons ------------------------------ */
+
+
+.social-icons a {
+	background: var(--color-primary); /*was cd2653*/
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	4.	Site Header
+/* -------------------------------------------------------------------------- */
+
+/* Header Titles ----------------------------- */
+
+.site-title {
+	font-weight: normal; /*was 600*/
+}
+
+.site-description {
+	margin-top: 1rem;
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 500*/
+	letter-spacing: normal;
+}
+
+
+/* Header Toggles ---------------------------- */
+
+.toggle-inner .toggle-text {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 600*/
+}
+
+/* Primary Menu ---------------------------- */
+
+ul.primary-menu {
+	font-weight: normal; /*was 500*/
+	letter-spacing: normal;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	5. Menu Modal
+/* -------------------------------------------------------------------------- */
+
+button.close-nav-toggle {
+	font-weight: normal; /*was 500*/
+}
+
+/* Main Menu --------------------------------- */
+
+.modal-menu li { 
+	border-color: var(--color-primary-light); /*was dedfdf*/
+}
+
+.modal-menu > li > a,
+.modal-menu > li > .ancestor-wrapper > a {
+	font-weight: bold; /*sans changed*/
+	letter-spacing: normal;
+}
+
+button.sub-menu-toggle { 
+	border-left: 0.1rem solid var(--color-primary-light); /*was dedfdf*/
+}
+
+.modal-menu ul li a {
+	color: inherit;
+	font-weight: normal; /*was 500*/
+}
+
+/* Menu Bottom ------------------------------- */
+
+.menu-copyright {
+	font-weight: normal; /*was 500*/
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	6. Search Modal
+/* -------------------------------------------------------------------------- */
+
+/* Modal Search Form ------------------------- */
+
+.search-modal .search-field {
+	letter-spacing: normal;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	8. Post: Archive
+/* -------------------------------------------------------------------------- */
+
+
+/* Archive Header ---------------------------- */
+
+.archive-title {
+	font-weight: bold; /*serif changed*/
+	letter-spacing: normal;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	9. Post: Single
+/* -------------------------------------------------------------------------- */
+
+
+/* Post Header ------------------------------- */
+
+.entry-categories a {
+	
+	font-weight: bold; /*sans changed*/
+	letter-spacing: normal;
+	text-transform: capitalize;  /*changed*/
+}
+
+
+.singular .intro-text {
+	letter-spacing: normal;
+}
+
+/* Post Meta */
+
+
+.post-meta {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 500*/
+}
+
+.post-meta li {
+	letter-spacing: normal;
+}
+
+/* Post Footer ------------------------------- */
+
+/* Post Nav Links */
+
+.post-nav-links {
+	font-weight: normal; /*was 600*/
+}
+
+
+/* Author Bio -------------------------------- */
+
+.author-bio .author-link {
+	font-weight: normal; /*was 600*/
+}
+
+/* Single Pagination ------------------------- */
+
+.pagination-single a {
+	font-weight: normal; /*was 600*/
+	letter-spacing: normal;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	10. Blocks
+/* -------------------------------------------------------------------------- */
+
+
+/* Block Colors ------------------------------ */
+
+/* CUSTOM COLORS */
+
+:root .has-accent-color {
+	color: var(--color-primary); /*was cd2653*/
+}
+
+:root .has-accent-background-color {
+	background-color: var(--color-primary); /*was cd2653*/
+}
+
+
+:root .has-primary-color {
+    color: var(--color-primary); /*was 000*/
+}
+
+:root .has-primary-background-color {
+	background-color: var(--color-primary); /*was 000*/
+	color: var(--color-background); /*was f5efe0*/
+}
+
+:root .has-secondary-color {
+	color: var(--color-secondary); /*was 6d6d6d*/
+}
+
+:root .has-secondary-background-color {
+	background-color: var(--color-secondary); /*was 6d6d6d*/
+	color: var(--color-background); /*was fff */
+}
+
+:root .has-subtle-background-color { /*I think this is for objects that are colored and in the background, not a typo where they meant to use the background-color property*/
+	color: var(--color-primary-light); /*was dcd7ca*/
+}
+
+:root .has-subtle-background-background-color { /*brilliant naming scheme here guys*/
+	background-color: var(--color-primary-light); /*was dcd7ca*/
+	color: var(--color-background); /*was fff */
+}
+
+:root .has-background-color {
+	color: var(--color-primary); /*was f5efe0*/
+}
+
+:root .has-background-background-color {
+	background-color: var(--color-primary-light); /*was f5efe0*/
+	color: var(--color-foreground); /*was 000*/
+}
+
+
+/* Block Typography Classes ------------------ */
+
+.has-drop-cap:not(:focus)::first-letter {
+	color: var(--color-primary); /*was cd2653*/
+	font-family: var(--font-serif);
+	font-weight: bold; /*serif changed*/
+}
+
+/* Block Font Families ----------------------- */
+
+.has-drop-cap:not(:focus)::first-letter,
+.entry-content .wp-block-archives,
+.entry-content .wp-block-categories,
+.entry-content .wp-block-cover-image,
+.entry-content .wp-block-latest-comments,
+.entry-content .wp-block-latest-posts,
+.entry-content .wp-block-pullquote,
+.entry-content .wp-block-quote.is-large,
+.entry-content .wp-block-quote.is-style-large {
+	font-family: var(--font-sans);
+}
+
+@supports ( font-variation-settings: normal ) {
+
+	.has-drop-cap:not(:focus)::first-letter,
+	.entry-content .wp-block-archives,
+	.entry-content .wp-block-categories,
+	.entry-content .wp-block-latest-posts,
+	.entry-content .wp-block-latest-comments,
+	.entry-content .wp-block-cover-image p,
+	.entry-content .wp-block-pullquote {
+		font-family: var(--font-sans);
+	}
+}
+
+/* Block Font Sizes -------------------------- */
+/*unchanged but good to remember these are here*/
+
+.entry-content .has-small-font-size {
+	font-size: 0.842em;
+}
+
+.entry-content .has-normal-font-size,
+.entry-content .has-regular-font-size {
+	font-size: 1em;
+}
+
+.entry-content .has-medium-font-size {
+	font-size: 1.1em;
+	line-height: 1.45;
+}
+
+.entry-content .has-large-font-size {
+	font-size: 1.25em;
+	line-height: 1.4;
+}
+
+.entry-content .has-larger-font-size {
+	font-size: 1.5em;
+	line-height: 1.3;
+}
+
+
+/* Block: Shared Widget Styles --------------- */
+
+.entry-content .wp-block-archives li,
+.entry-content .wp-block-categories li,
+.entry-content .wp-block-latest-posts li {
+	color: var(--color-primary); /*was 6d6d6d*/
+}
+
+.wp-block-archives a,
+.wp-block-categories a,
+.wp-block-latest-posts a,
+.wp-block-latest-comments a {
+	font-weight: bold; /*sans changed*/
+}
+
+.wp-block-latest-posts a,
+.wp-block-latest-comments__comment-meta {
+	font-weight: bold; /*sans changed*/
+	letter-spacing: normal;
+}
+
+.wp-block-latest-comments__comment-date,
+.wp-block-latest-posts__post-date {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 600*/
+	letter-spacing: normal;
+}
+
+
+/* Block: Shared Media Styles ---------------- */
+
+.wp-block-embed figcaption,
+.wp-block-image figcaption {
+	color: var(--color-secondary); /*was 6d6d6d*/
+}
+
+
+/* Block: Button ----------------------------- */
+/*section mostly unchanged; may need to be fixed*/
+
+.wp-block-button {
+	margin: 3rem 0;
+}
+
+.wp-block-button.is-style-outline {
+	color: var(--color-primary); /*was cd2653*/
+}
+
+.is-style-outline .wp-block-button__link:not(.has-text-color) {
+	color: inherit;
+}
+
+.is-style-outline .wp-block-button__link {
+	padding: calc(1.1em - 0.2rem) calc(1.44em - 0.2rem);
+}
+
+
+/* Block: File ------------------------------- */
+
+.wp-block-file a:not(.wp-block-file__button) {
+	font-weight: bold; /*sans changed*/
+}
+
+
+/* Block: Group ------------------------------ */
+/*unchanged; may need to be fixed*/
+
+.wp-block-group.has-background { 
+	padding: 2rem;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+
+.alignfull:not(.has-background) > .wp-block-group__inner-container > p:not(.has-background-color) {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+
+/* Block: Pullquote -------------------------- */
+
+/* STYLE: DEFAULT */
+
+.wp-block-pullquote::before {
+	color: var(--color-primary); /*was cd2653*/
+	font-weight: normal; /*was 500*/
+
+}
+
+.wp-block-pullquote blockquote p {
+    font-weight: bold; /*sans changed*/
+	line-height: 1.18;
+	letter-spacing: normal;
+}
+
+.wp-block-pullquote cite {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 500*/
+}
+
+/* Block: Separator  ------------------------- */
+
+/* Style: Dots */
+
+.wp-block-separator.is-style-dots::before {
+	font-weight: bold; /*sans changed*/
+	letter-spacing: normal;
+}
+
+/* Block: Table ------------------------------ */
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background: var(--color-primary-light); /* was dcd7ca*/
+}
+
+/* Style: Large */
+
+.wp-block-quote.is-large p,
+.wp-block-quote.is-style-large p {
+	font-weight: bold; /*sans changed*/
+}
+
+/* Block: Widget Latest Posts ---------------- */
+
+.wp-block-latest-posts.is-grid li {
+	border-top: 0.2rem solid var(--color-primary-light); /*was dcd7ca*/
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	11. Entry Content
+/* -------------------------------------------------------------------------- */
+
+
+/* Font Families ----------------------------- */
+
+.entry-content {
+	font-family: var(--font-sans);
+	letter-spacing: normal;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+.entry-content table th,
+.entry-content table thead,
+.entry-content table tfoot {
+	font-family: var(--font-serif);
+}
+
+.entry-content cite,
+.entry-content figcaption,
+.entry-content table,
+.entry-content address,
+.entry-content .wp-caption-text,
+.entry-content .wp-block-file {
+	font-family: var(--font-sans);
+}
+
+
+
+
+@supports ( font-variation-settings: normal ) {
+
+	.entry-content h1,
+	.entry-content h2,
+	.entry-content h3,
+	.entry-content h4,
+	.entry-content h5,
+	.entry-content h6,
+	.entry-content table th,
+	.entry-content table thead,
+	.entry-content table tfoot {
+		font-family: var(--font-serif);
+	}
+
+	.entry-content cite,
+	.entry-content figcaption,
+	.entry-content table,
+	.entry-content address,
+	.entry-content .wp-caption-text,
+	.entry-content .wp-block-file {
+		font-family: var(--font-sans);
+	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	13. Site Pagination
+/* -------------------------------------------------------------------------- */
+
+
+.pagination .nav-links {
+	font-weight: normal; /*was 600*/
+}
+
+.pagination .dots {
+	transform: translateY(-0.3em);
+	color: var(--color-primary); /*was 6d6d6d*/
+}
+
+.nav-short {
+	display: none;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	15.	Widgets
+/* -------------------------------------------------------------------------- */
+
+
+/* Widget Base ------------------------------- */
+
+.widget table,
+.widget table * {
+	border-color: var(--color-primary-light); /*was dedfdf*/
+}
+
+.widget table caption {
+	background-color: var(--color-primary-light); /*was dedfdf*/
+}
+
+.widget .post-date,
+.widget .rss-date {
+	color: var(--color-primary); /*was 6d6d6d*/
+	font-weight: normal; /*was 500*/
+}
+
+/* Font Families ----------------------------- */
+
+.widget_text p,
+.widget_text ol,
+.widget_text ul,
+.widget_text dl,
+.widget_text dt,
+.widget-content .rssSummary {
+	font-family: var(--font-sans);
+	letter-spacing: normal;
+}
+
+.widget-content cite,
+.widget-content figcaption,
+.widget-content .wp-caption-text {
+	font-family: var(--font-sans);
+}
+
+@supports ( font-variation-settings: normal ) {
+
+	.widget-content cite,
+	.widget-content figcaption,
+	.widget-content .wp-caption-text {
+		font-family: var(--font-sans);
+	}
+}
+
+/* Base List Widget -------------------------- */
+
+.widget_archive li,
+.widget_categories li,
+.widget_pages li,
+.widget_meta li,
+.widget_nav_menu li {
+	color: var(--color-primary); /*was 6d6d6d*/
+}
+
+.widget_archive a,
+.widget_categories a,
+.widget_pages a,
+.widget_meta a,
+.widget_nav_menu a {
+	font-weight: bold; /*sans changed*/
+}
+
+/* Widget: Calendar -------------------------- */
+
+.calendar_wrap th,
+.calendar_wrap td,
+.wp-calendar-nav span {
+	font-weight: normal; /*was 500*/
+}
+
+
+/* Widget: Recent Entries -------------------- */
+
+.widget_recent_entries a {
+	font-weight: bold; /*sans changed*/
+}
+
+/* Widget: RSS ------------------------------- */
+
+.widget_rss .rsswidget {
+	font-weight: bold; /*sans changed*/
+}
+
+
+/* Widget: Search ---------------------------- */
+
+.widget_search .search-field {
+	border-color: var(--color-primary-light); /*was dedfdf*/
+}
+
+/* Widget: Tag Cloud ------------------------- */
+
+.widget_tag_cloud a {
+	font-weight: bold; /*sans changed*/
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	16. Site Footer
+/* -------------------------------------------------------------------------- */
+
+
+.footer-nav-widgets-wrapper,
+#site-footer {
+	border-color: var(--color-primary-light); /*was dedfdf*/
+}
+
+/* Footer Top -------------------------------- */
+
+.footer-top {
+	border-bottom: 0.1rem solid var(--color-primary-light); /*was dedfdf*/
+}
+
+/* Footer Menu */
+
+.footer-menu {
+	font-weight: bold; /*sans changed*/
+	letter-spacing: normal;
+}
+
+
+/* Footer Social */
+
+.footer-social a {
+	background-color: var(--color-primary); /*was cd2653*/
+}
+
+/* Footer Widgets ---------------------------- */
+
+.footer-widgets-outer-wrapper {
+	border-bottom: 0.1rem solid var(--color-primary-light); /*was dedfdf*/
+}
+
+/* Footer Bottom ----------------------------- */
+
+.privacy-policy,
+.powered-by-wordpress,
+.to-the-top {
+	color: var(--color-primary); /*was 6d6d6d*/
+}
+
+.footer-copyright {
+	font-weight: normal; /*was 600*/
+	margin: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	17. Media Queries
+/* -------------------------------------------------------------------------- */
+
+@media ( max-width: 479px ) {
+
+}
+
+@media ( min-width: 480px ) {
+
+	
+}
+
+@media ( max-width: 599px ) {
+
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//*Unchanged, may need fixes*/
+
+	/* While columns are stacked */
+	.wp-block-column:last-child {
+		margin-bottom: 0;
+	}
+
+	.wp-block-columns + .wp-block-columns {
+		margin-top: 0.2rem;
+	}
+
+	.wp-block-columns.alignwide + .wp-block-columns.alignwide {
+		margin-top: -0.8rem;
+	}
+
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -1.8rem;
+	}
+
+}
+
+@media ( min-width: 600px ) {
+
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//*Unchanged, may need fixes*/
+
+	.wp-block-columns.alignwide + .wp-block-columns.alignwide,
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -4rem;
+	}
+
+}
+
+@media ( min-width: 660px ) {
+
+}
+
+@media ( min-width: 700px ) {
+
+	/* Site Header --------------------------- */
+
+	.site-title {
+		font-weight: bold; /*serif changed*/
+	}
+	
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//*Unchanged, may need fixes*/
+
+	.wp-block-columns.alignwide + .wp-block-columns.alignwide,
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -6rem;
+	}
+
+	.entry-content .wp-block-columns h1,
+	.entry-content .wp-block-columns h2,
+	.entry-content .wp-block-columns h3,
+	.entry-content .wp-block-columns h4,
+	.entry-content .wp-block-columns h5,
+	.entry-content .wp-block-columns h6 {
+		margin: 3.5rem 0 2rem;
+	}
+
+	/* Site Pagination ----------------------- */
+
+	.pagination .nav-links {
+		font-weight: bold; /*sans changed*/
+	}
+
+    /* Footer ------------------------------- */
+
+	/* FOOTER BOTTOM */
+
+	.footer-copyright {
+		font-weight: bold; /*sans changed*/
+	}
+
+}
+
+@media (min-width: 782px) {
+
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//*Unchanged, may need fixes*/
+
+	.wp-block-column {
+		margin-bottom: 0;
+	}
+
+	.wp-block-columns.alignwide + .wp-block-columns.alignwide,
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -2.8rem;
+	}
+}
+
+@media ( min-width: 1000px ) {
+
+	/* Site Header --------------------------- */
+
+	/* HEADER TOGGLES */
+
+	.header-inner .toggle-wrapper::before {
+		background: var(--color-primary-light); /*was dedfdf*/
+		
+	}
+
+	
+	/* Menu Modal ---------------------------- */
+    /* Unchanged, might need fixes later*/
+
+	.menu-modal {
+		opacity: 1;
+		justify-content: flex-end;
+		padding: 0;
+		transition: background-color 0.3s ease-in, left 0s 0.3s, right 0s 0.3s;
+	}
+
+	.menu-modal.cover-modal {
+		background: rgba(0, 0, 0, 0);
+	}
+
+	.menu-modal.active {
+		background: rgba(0, 0, 0, 0.2);
+		transition: background-color 0.3s ease-out;
+	}
+
+	.menu-wrapper.section-inner {
+		width: calc(100% - 8rem);
+	}
+
+	.menu-modal-inner {
+		box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+		opacity: 0;
+		padding: 0;
+		transform: translateX(20rem);
+		transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+		width: 50rem;
+	}
+
+	.menu-modal.active .menu-modal-inner {
+		opacity: 1;
+		transform: translateX(0);
+		transition-timing-function: ease-out;
+	}
+
+	.mobile-menu {
+		display: none;
+	}
+
+	.expanded-menu {
+		display: block;
+	}
+
+	.menu-bottom {
+		padding: 6rem 0;
+	}
+
+	.menu-bottom .social-menu {
+		justify-content: flex-start;
+	}
+
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//* Unchanged, might need fixes later*/
+
+	.wp-block-columns.alignwide + .wp-block-columns.alignwide,
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -4.8rem;
+	}
+
+}
+
+
+@media ( min-width: 1220px ) {
+
+	/* Post: Single -------------------------- */
+
+	.singular .intro-text {
+		letter-spacing: normal;
+	}
+
+	/* Blocks -------------------------------- */
+
+	/* BLOCK: COLUMNS *//* Unchanged, might need fixes later*/
+
+	.wp-block-columns.alignfull + .wp-block-columns.alignfull {
+		margin-top: -6rem;
+	}
+
+	/* Site Footer --------------------------- */
+
+}
+
+@media ( min-width: 1240px ) {
+
+}
+
+@media ( min-width: 1280px ) {
+
+	
+
+}
+
+@media ( min-width: 1330px ) {
+
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	18. Inline Style Tag 🙄
+/* -------------------------------------------------------------------------- */
+
+/*Theme Colors Default Override*/
+
+HTML .color-accent,
+HTML .color-accent-hover:hover,
+HTML .color-accent-hover:focus,
+HTML :root .has-accent-color,
+HTML .has-drop-cap:not(:focus):first-letter,
+HTML .wp-block-button.is-style-outline,
+HTML a { color: var(--color-primary); }
+
+HTML blockquote,
+HTML .border-color-accent,
+HTML .border-color-accent-hover:hover,
+HTML .border-color-accent-hover:focus { border-color: var(--color-primary); }
+
+HTML button,
+HTML .button,
+HTML .faux-button,
+HTML .wp-block-button__link,
+HTML .wp-block-file .wp-block-file__button,
+HTML input[type="button"],
+HTML input[type="reset"],
+HTML input[type="submit"],
+HTML .bg-accent,
+HTML .bg-accent-hover:hover,
+HTML .bg-accent-hover:focus,
+HTML :root .has-accent-background-color,
+HTML .comment-reply-link { background-color: var(--color-primary); }
+
+HTML .fill-children-accent,
+HTML .fill-children-accent * { fill: var(--color-primary); }
+
+HTML :root .has-background-color,
+HTML button,
+HTML .button,
+HTML .faux-button,
+HTML .wp-block-button__link,
+HTML .wp-block-file__button,
+HTML input[type="button"],
+HTML input[type="reset"],
+HTML input[type="submit"],
+HTML .wp-block-button,
+HTML .comment-reply-link,
+HTML .has-background.has-primary-background-color:not(.has-text-color),
+HTML .has-background.has-primary-background-color *:not(.has-text-color),
+HTML .has-background.has-accent-background-color:not(.has-text-color),
+HTML .has-background.has-accent-background-color *:not(.has-text-color) { color: var(--color-background); }
+
+HTML :root .has-background-background-color { background-color: var(--color-background); }
+
+HTML body,
+HTML .entry-title a,
+HTML :root .has-primary-color { color: var(--color-foreground); }
+
+HTML :root .has-primary-background-color { background-color: var(--color-foreground); }
+
+HTML cite,
+HTML figcaption,
+HTML .wp-caption-text,
+HTML .post-meta,
+HTML .entry-content .wp-block-archives li,
+HTML .entry-content .wp-block-categories li,
+HTML .entry-content .wp-block-latest-posts li,
+HTML .wp-block-latest-comments__comment-date,
+HTML .wp-block-latest-posts__post-date,
+HTML .wp-block-pullquote cite,
+HTML .comment-metadata,
+HTML .comment-respond .comment-notes,
+HTML .comment-respond .logged-in-as,
+HTML .pagination .dots,
+HTML .entry-content hr:not(.has-background),
+HTML hr.styled-separator { color: var(--color-primary); }
+
+HTML .wp-block-embed figcaption,
+HTML .wp-block-image figcaption,
+HTML :root .has-secondary-color { color: var(--color-secondary); }
+
+HTML :root .has-secondary-background-color { background-color: var(--color-secondary); }
+
+HTML pre,
+HTML fieldset,
+HTML input,
+HTML textarea,
+HTML table,
+HTML table *,
+HTML hr { border-color: var(--color-primary-light); /*was dbdbdb*/ }
+
+HTML caption,
+HTML code,
+HTML code,
+HTML kbd,
+HTML samp,
+HTML .wp-block-table.is-style-stripes tbody tr:nth-child(odd),
+HTML :root .has-subtle-background-background-color { background-color: var(--color-primary-light); /*was dbdbdb*/ }
+
+HTML .wp-block-table.is-style-stripes { border-bottom-color: var(--color-primary-light); /*was dbdbdb*/ }
+
+HTML .wp-block-latest-posts.is-grid li { border-top-color: var(--color-primary-light); /*was dbdbdb*/ }
+
+HTML :root .has-subtle-background-color { color: var(--color-primary-light); /*was dbdbdb*/ }
+
+HTML body:not(.overlay-header) .primary-menu > li > a,
+HTML body:not(.overlay-header) .primary-menu > li > .icon,
+HTML .modal-menu a,
+HTML .footer-menu a,
+HTML .footer-widgets a,
+HTML #site-footer .wp-block-button.is-style-outline,
+HTML .wp-block-pullquote:before,
+HTML .singular:not(.overlay-header) .entry-header a,
+HTML .archive-header a,
+HTML .header-footer-group .color-accent,
+HTML .header-footer-group .color-accent-hover:hover { color: var(--color-background); }
+
+HTML .social-icons a,
+HTML #site-footer button:not(.toggle),
+HTML #site-footer .button,
+HTML #site-footer .faux-button,
+HTML #site-footer .wp-block-button__link,
+HTML #site-footer .wp-block-file__button,
+HTML #site-footer input[type="button"],
+HTML #site-footer input[type="reset"],
+HTML #site-footer input[type="submit"] { background-color: var(--color-background); }
+
+HTML .social-icons a,
+HTML body:not(.overlay-header) .primary-menu ul,
+HTML .header-footer-group button,
+HTML .header-footer-group .button,
+HTML .header-footer-group .faux-button,
+HTML .header-footer-group .wp-block-button:not(.is-style-outline) .wp-block-button__link,
+HTML .header-footer-group .wp-block-file__button,
+HTML .header-footer-group input[type="button"],
+HTML .header-footer-group input[type="reset"],
+HTML .header-footer-group input[type="submit"] { color: var(--color-primary); }
+
+HTML #site-header,
+HTML .footer-nav-widgets-wrapper,
+HTML #site-footer,
+HTML .menu-modal,
+HTML .menu-modal-inner,
+HTML .search-modal-inner,
+HTML .archive-header,
+HTML .singular .entry-header,
+HTML .singular .featured-media:before,
+HTML .wp-block-pullquote:before { background-color: var(--color-primary); }
+
+HTML .header-footer-group,
+HTML body:not(.overlay-header) #site-header .toggle,
+HTML .menu-modal .toggle { color: var(--color-background); }
+
+HTML body:not(.overlay-header) .primary-menu ul { background-color: var(--color-background); }
+
+HTML body:not(.overlay-header) .primary-menu > li > ul:after { border-bottom-color: var(--color-background); }
+
+HTML body:not(.overlay-header) .primary-menu ul ul:after { border-left-color: var(--color-background); }
+
+HTML .site-description,
+HTML body:not(.overlay-header) .toggle-inner .toggle-text,
+HTML .widget .post-date,
+HTML .widget .rss-date,
+HTML .widget_archive li,
+HTML .widget_categories li,
+HTML .widget cite,
+HTML .widget_pages li,
+HTML .widget_meta li,
+HTML .widget_nav_menu li,
+HTML .powered-by-wordpress,
+HTML .to-the-top,
+HTML .singular .entry-header .post-meta,
+HTML .singular:not(.overlay-header) .entry-header .post-meta a { color: var(--color-background); }
+
+HTML .header-footer-group pre,
+HTML .header-footer-group fieldset,
+HTML .header-footer-group input,
+HTML .header-footer-group textarea,
+HTML .header-footer-group table,
+HTML .header-footer-group table *,
+HTML .footer-nav-widgets-wrapper,
+HTML #site-footer,
+HTML .menu-modal nav *,
+HTML .footer-widgets-outer-wrapper,
+HTML .footer-top { border-color: var(--color-primary-bright); }
+
+HTML .header-footer-group table caption,
+HTML body:not(.overlay-header) .header-inner .toggle-wrapper::before { background-color: var(--color-primary-bright); }
